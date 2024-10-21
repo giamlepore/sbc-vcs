@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Plataforma SBC School (Beta)",
-  description: "Acesse seu curso aqui. Technical Product Manager ou Como criar um produto do zero, sem sorte?",
+  title: "Plataforma Tech for VCs (SBC)",
+  description: "Acesse a plataforma Tech for VCs aqui.",
 };
 
 export default function RootLayout({

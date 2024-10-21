@@ -27,13 +27,13 @@ const modules = [
   {
     title: 'Módulo 01: O básico de tech para Venture Capital',
     courses: [
-      { title: 'Aula #01 - Em breve', image: '/m1.png', video: 'https://player.vimeo.com/video/1016265685?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #02 - Em breve', image: '/m1.png', video: 'https://player.vimeo.com/video/1016265764?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #03 - Em breve', image: '/m1.png', video: 'https://player.vimeo.com/video/1016265897?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #04 - Em breve', image: '/m1.png', video: 'https://player.vimeo.com/video/1016266097?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #05 - Em breve', image: '/m1.png', video: 'https://player.vimeo.com/video/1016266177?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #06 - Em breve', image: '/m1.png', video: 'https://player.vimeo.com/video/1016266528?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #07 - Em breve', image: '/m1.png', video: 'https://player.vimeo.com/video/1016266562?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #01 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016265685?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #02 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016265764?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #03 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016265897?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #04 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266097?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #05 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266177?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #06 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266528?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #07 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266562?badge=0&amp;autopause=0&amp;player_id=0&amp' },
     ],
     tasks: [
       { title: 'Em breve', completed: false },
@@ -104,6 +104,12 @@ const shorts = [
   { title: '3 tipos de PMs', duration: '1:00', video2: 'https://player.vimeo.com/video/1010369598?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369598?autoplay=1' },
   { title: 'Progresso vs Movimento', duration: '1:15', video2: 'https://player.vimeo.com/video/1010369754?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369754?autoplay=1' },
   { title: 'Contexto Importa', duration: '0:50', video2: 'https://player.vimeo.com/video/1010369779?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369779?autoplay=1' },
+]
+
+const articles = [
+  { title: 'Entendendo sobre Backend', image: '/backend.png', slug: 'understanding-tech-stacks' },
+  // { title: 'The Future of AI in VC', image: '/article2.jpg', slug: 'future-of-ai-in-vc' },
+  // Add more articles as needed
 ]
 
 export function CoursePlatform() {
@@ -419,6 +425,35 @@ function CoursePlatformContent() {
     )
   }
 
+  const renderArticles = () => {
+    return (
+      <div className="mb-8">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-2xl font-bold text-gray-200 font-sans">Articles</h2>
+          <ChevronRight className="h-6 w-6 text-gray-400" />
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {articles.map((article, index) => (
+            <div
+              key={index}
+              className="bg-gray-800 rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg transition-all duration-300"
+              onClick={() => {
+                window.location.href = `/article/${article.slug}`
+              }}
+            >
+              <div className="relative aspect-video">
+                <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
+              </div>
+              <div className="p-2">
+                <h3 className="font-semibold text-sm text-gray-200 font-sans">{article.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   const renderNextUncompletedCourse = () => {
     for (let moduleIndex = 0; moduleIndex < modules.length; moduleIndex++) {
       const chapter = modules[moduleIndex];
@@ -502,7 +537,7 @@ function CoursePlatformContent() {
       {/* Header */}
       <header className="sticky top-0 z-10 bg-gray-800 border-b border-gray-700">
         <div className="flex items-center justify-between px-4 py-2">
-          <h1 className="text-2xl font-bold text-white text-opacity-80 font-sans">SBC</h1>
+          <h1 className="text-2xl font-bold text-white text-opacity-80 font-sans">SBC | Tech for VCs</h1>
           <div className="flex-1 mx-4">
             <div className="relative">
               {/* <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" /> */}
@@ -637,6 +672,7 @@ function CoursePlatformContent() {
               </div>
             ))}
             {renderShorts()}
+            {renderArticles()}
           </>
         ) : activeTab === 'Shorts 🔥' ? (
           renderAllShorts()
