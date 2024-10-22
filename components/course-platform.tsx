@@ -96,7 +96,7 @@ const modules = [
 ]
 
 const shorts = [
-  { title: 'Tech for VCs - Welcome', duration: '0:22', video2: 'https://player.vimeo.com/video/1022247390?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video1022247390?autoplay=1' },
+  { title: 'Tech for VCs - Welcome', duration: '0:22', video2: 'https://player.vimeo.com/video/1022247390?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1022247390?autoplay=1' },
 ]
 
 const articles = [
