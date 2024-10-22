@@ -68,7 +68,7 @@ const modules = [
   },
   
   {
-    title: 'Extra: Conceitos de básicos de programação para se tornar um "PM full-stack"',
+    title: 'Extra: Conceitos de básicos de programação para se tornar um "full-stack"',
     courses: [
       { title: 'Extra #23 - Pontos importantes em Programação', image: '/m3.png', video: 'https://player.vimeo.com/video/1016270619?badge=0&amp;autopause=0&amp;player_id=0&amp' },
       { title: 'Extra #24 - Você realmente entende o que é "front-end"?', image: '/m3.png', video: 'https://player.vimeo.com/video/1016270903?badge=0&amp;autopause=0&amp;player_id=0&amp' },
@@ -108,6 +108,9 @@ const shorts = [
 
 const articles = [
   { title: 'Entendendo sobre Backend', image: '/backend.png', slug: 'understanding-tech-stacks' },
+  { title: '50 conceitos técnicos para VCs', image: '/50-conceitos.png', slug: '50-conceitos' },
+  { title: 'ChatGPT Evolução', image: '/chatgptparar.png', slug: 'chatgpt-evolucao' },
+  { title: 'Frameworks, o que são?', image: '/frameworks.png', slug: 'frameworks' },
   // { title: 'The Future of AI in VC', image: '/article2.jpg', slug: 'future-of-ai-in-vc' },
   // Add more articles as needed
 ]
