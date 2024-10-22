@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Search, Home, BookOpen, CheckSquare, BarChart2, ChevronRight, ChevronDown, Play, Check, X } from 'lucide-react'
+import { Search, Home, BookOpen, CheckSquare, BarChart2, ChevronRight, ChevronLeft, ChevronDown, Play, Check, X } from 'lucide-react'
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
 import { useSession, signIn, signOut } from "next-auth/react"
@@ -36,8 +36,6 @@ const modules = [
       { title: 'Aula #07 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266562?badge=0&amp;autopause=0&amp;player_id=0&amp' },
     ],
     tasks: [
-      { title: 'Em breve', completed: false },
-      { title: 'Em breve', completed: false },
       { title: 'Em breve', completed: false },
       { title: 'Em breve', completed: false },
     ]
@@ -98,12 +96,7 @@ const modules = [
 ]
 
 const shorts = [
-  { title: 'Validação de Ideias', duration: '1:00', video2: 'https://player.vimeo.com/video/1010369564?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369564?autoplay=1' },
-  { title: 'Tipos de Criadores', duration: '0:45', video2: 'https://player.vimeo.com/video/1010369687?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369687?autoplay=1' },
-  { title: 'Entender de Tech', duration: '1:30', video2: 'https://player.vimeo.com/video/1010369636?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369636?autoplay=1' },
-  { title: '3 tipos de PMs', duration: '1:00', video2: 'https://player.vimeo.com/video/1010369598?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369598?autoplay=1' },
-  { title: 'Progresso vs Movimento', duration: '1:15', video2: 'https://player.vimeo.com/video/1010369754?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369754?autoplay=1' },
-  { title: 'Contexto Importa', duration: '0:50', video2: 'https://player.vimeo.com/video/1010369779?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1010369779?autoplay=1' },
+  { title: 'Tech for VCs - Welcome', duration: '0:22', video2: 'https://player.vimeo.com/video/1022247390?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video1022247390?autoplay=1' },
 ]
 
 const articles = [
@@ -143,6 +136,7 @@ function CoursePlatformContent() {
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
   const [lastUncompletedCourse, setLastUncompletedCourse] = useState<{ moduleIndex: number, courseIndex: number } | null>(null)
+  
 
   useEffect(() => {
     if (session?.user) {
@@ -335,7 +329,7 @@ function CoursePlatformContent() {
     return (
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-gray-200 font-sans">Shorts</h2>
+          <h2 className="text-2xl font-bold text-gray-200 font-sans">Shorts (Beta)</h2>
           <ChevronRight className="h-6 w-6 text-gray-400" />
         </div>
         <div 
@@ -592,23 +586,22 @@ function CoursePlatformContent() {
                 frameBorder="0"
                 allow="autoplay; fullscreen"
                 allowFullScreen
+                style={{ zIndex: 12 }}
               ></iframe>
-              <div 
-                className="absolute inset-0"
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-                style={{ zIndex: 10 }}
-              >
-              </div>
               <div className="absolute top-4 right-4" style={{ zIndex: 11 }}>
                 <Button variant="ghost" onClick={() => setShowShortVideo(false)}>
                   <X className="h-6 w-6 text-white" />
                 </Button>
               </div>
-              <div className="absolute left-4 bottom-20 text-white">
-                <h3 className="text-xl font-bold">{shorts[currentShort].title}</h3>
-                <p>{shorts[currentShort].duration}</p>
+              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 animate-pulse" style={{ zIndex: 11 }}>
+                <Button variant="ghost" onClick={() => setCurrentShort((currentShort - 1 + shorts.length) % shorts.length)}>
+                  <ChevronLeft className="h-6 w-6 text-white bg-gray-800 rounded-full" />
+                </Button>
+              </div>
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 animate-pulse" style={{ zIndex: 11 }}>
+                <Button variant="ghost" onClick={() => setCurrentShort((currentShort + 1) % shorts.length)}>
+                  <ChevronRight className="h-6 w-6 text-white bg-gray-800 rounded-full" />
+                </Button>
               </div>
             </div>
           </div>
