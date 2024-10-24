@@ -23,21 +23,32 @@ interface CustomSession extends Session {
   }
 }
 
+interface Task {
+  title: string;
+  completed: boolean;
+  link?: string;
+}
+
 const modules = [
   {
     title: 'Módulo 01: O básico de tech para Venture Capital',
     courses: [
-      { title: 'Aula #01 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016265685?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #02 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016265764?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #03 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016265897?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #04 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266097?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #05 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266177?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #06 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266528?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #07 - Em breve', image: '/newsoon.png', video: 'https://player.vimeo.com/video/1016266562?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #01 - Expectativas e quem é o professor?', image: '/m01intro.png', video: 'https://player.vimeo.com/video/1022894607?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #02 - Planejamento do curso', image: '/m01intro.png', video: 'https://player.vimeo.com/video/1022894767?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #03 - Análise de Pitch Deck, Tempo para Leitura', image: '/m01intro.png', video: 'https://player.vimeo.com/video/1022894865?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #04 - Discussão do Deck', image: '/m01intro.png', video: 'https://player.vimeo.com/video/1022895087?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #05 - Tech + Inovação', image: '/m01intro.png', video: 'https://player.vimeo.com/video/1022895342?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #06 - Tech + Escalonamento', image: '/m01intro.png', video: 'https://player.vimeo.com/video/1022898317?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #07 - Diferentes Tipos de Empresas Tech', image: '/m01intro.png', video: 'https://player.vimeo.com/video/1022909242?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #08 - Valuation + Tech', image: '/m01intro.png', video: 'https://player.vimeo.com/video/1022909121?badge=0&amp;autopause=0&amp;player_id=0&amp' },
     ],
     tasks: [
-      { title: 'Em breve', completed: false },
-      { title: 'Em breve', completed: false },
+      { title: 'Acesse o pitch deck clicando aqui', link: 'https://drive.google.com/file/d/16N0rvwNy2ggcp0zK2ivGwZWQjntuTChw/view?usp=drive_link', completed: false },
+      { title: 'Mande suas perguntas técnicas do deck clicando aqui', link: 'https://tally.so/r/w8pZEo', completed: false },
+      { title: 'Avalie a aula clicando aqui', link: 'https://tally.so/r/w4NJAr', completed: false },
+      { title: 'Leia o artigo "50 conceitos técnicos para VCs" na seção Articles na Home', completed: false },
+
+
     ]
   },
   {
@@ -136,6 +147,8 @@ function CoursePlatformContent() {
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
   const [lastUncompletedCourse, setLastUncompletedCourse] = useState<{ moduleIndex: number, courseIndex: number } | null>(null)
+  const [showWebView, setShowWebView] = useState(false)
+  const [webViewUrl, setWebViewUrl] = useState('')
   
 
   useEffect(() => {
@@ -487,6 +500,27 @@ function CoursePlatformContent() {
     return null
   }
 
+  const openWebView = (url: string) => {
+    setWebViewUrl(url)
+    setShowWebView(true)
+  }
+
+  const WebViewModal = () => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg w-full max-w-4xl h-5/6 flex flex-col">
+        <div className="flex justify-between items-center p-4 border-b">
+          <h3 className="text-lg font-semibold text-gray-900">SBC SCHOOL</h3>
+          <button onClick={() => setShowWebView(false)} className="text-gray-500 hover:text-gray-700">
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+        <div className="flex-grow">
+          <iframe src={webViewUrl} className="w-full h-full border-none" title="External Content" />
+        </div>
+      </div>
+    </div>
+  )
+
   if (!mounted) {
     return null
   }
@@ -683,7 +717,16 @@ function CoursePlatformContent() {
                     <li key={taskIndex} className="flex items-center space-x-2">
                       <Checkbox id={`task-${moduleIndex}-${taskIndex}`} />
                       <label htmlFor={`task-${moduleIndex}-${taskIndex}`} className="text-sm text-gray-300">
-                        {task.title}
+                        {task.link ? (
+                          <button
+                            onClick={() => openWebView(task.link!)}
+                            className="text-blue-400 hover:underline"
+                          >
+                            {task.title}
+                          </button>
+                        ) : (
+                          task.title
+                        )}
                       </label>
                     </li>
                   ))}
@@ -758,6 +801,8 @@ function CoursePlatformContent() {
           ))}
         </div>
       </nav>
+
+      {showWebView && <WebViewModal />}
     </div>
   )
 }
