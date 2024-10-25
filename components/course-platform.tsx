@@ -13,6 +13,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import prisma from "@/lib/prisma"
 import { Session } from 'next-auth';
 import { SessionProvider } from "next-auth/react"
+import { Leaderboard } from "@/components/leaderboard"
 
 interface CustomSession extends Session {
   user: {
@@ -596,7 +597,7 @@ function CoursePlatformContent() {
             </div>
             <div className="relative">
               <Button onClick={handleComplete} className="w-full bg-indigo-600 hover:bg-indigo-700">
-                Mark as Completed
+                Mark as Completed (+5 pontos)
               </Button>
               {showCheckAnimation && (
                 <motion.div
@@ -746,6 +747,7 @@ function CoursePlatformContent() {
               />
               <p className="text-center text-lg font-semibold text-gray-400">{Math.round(progress)}% do curso concluído</p>
             </div>
+            <Leaderboard currentUserId={session?.user?.id} />
             {modules.map((moduleItem, moduleIndex) => (
               <div key={moduleIndex} className="bg-gray-800 p-4 rounded-lg">
                 <h3 className="text-xl font-bold mb-2 text-indigo-300 font-sans tracking-tight sm:text-lg">{moduleItem.title}</h3>
