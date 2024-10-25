@@ -16,6 +16,19 @@ model User {
   accounts      Account[]
   progress      Progress[]
   sessions      Session[]
+  lastSessionAt DateTime?
+  courseCompletions CourseCompletion[]
+}
+
+model CourseCompletion {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  moduleId  Int
+  courseId  Int
+  completedAt DateTime @default(now())
+
+  @@unique([userId, moduleId, courseId])
 }
 
 model Account {

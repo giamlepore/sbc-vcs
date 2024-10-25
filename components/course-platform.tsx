@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Search, Home, BookOpen, CheckSquare, BarChart2, ChevronRight, ChevronLeft, ChevronDown, Play, Check, X } from 'lucide-react'
+import { Search, Home, BookOpen, CheckSquare, BarChart2, ChevronRight, ChevronLeft, ChevronDown, Play, Check, X, Gamepad2 } from 'lucide-react'
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
 import { useSession, signIn, signOut } from "next-auth/react"
@@ -14,7 +14,7 @@ import prisma from "@/lib/prisma"
 import { Session } from 'next-auth';
 import { SessionProvider } from "next-auth/react"
 import { Leaderboard } from "@/components/leaderboard"
-
+import { UserStats } from "@/components/UserStats"
 interface CustomSession extends Session {
   user: {
     id: string;
@@ -151,6 +151,7 @@ function CoursePlatformContent() {
   const [showWebView, setShowWebView] = useState(false)
   const [webViewUrl, setWebViewUrl] = useState('')
   
+  
 
   useEffect(() => {
     if (session?.user) {
@@ -164,6 +165,17 @@ function CoursePlatformContent() {
       const progress = await fetch(`/api/progress?userId=${session.user.id}`).then(res => res.json())
       setCompletedCourses(progress)
       findLastUncompletedCourse(progress)
+  
+      // Atualizar a última sessão do usuário
+      await fetch('/api/user-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: session.user.id,
+        }),
+      })
     }
   }
 
@@ -189,6 +201,7 @@ function CoursePlatformContent() {
   const handleComplete = async () => {
     setShowCheckAnimation(true)
     if (session?.user?.id) {
+      // Registrar o progresso
       await fetch('/api/progress', {
         method: 'POST',
         headers: {
@@ -200,13 +213,26 @@ function CoursePlatformContent() {
           courseId: currentCourse,
         }),
       })
+  
+      // Registrar a conclusão do curso
+      await fetch('/api/course-completion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: session.user.id,
+          moduleId: currentModule,
+          courseId: currentCourse,
+        }),
+      })
     }
-
+  
     setCompletedCourses(prev => ({
       ...prev,
       [currentModule]: [...(prev[currentModule] || []), currentCourse]
     }))
-
+  
     setTimeout(() => {
       setShowCheckAnimation(false)
       moveToNextLesson()
@@ -707,7 +733,23 @@ function CoursePlatformContent() {
           </>
         ) : activeTab === 'Shorts 🔥' ? (
           renderAllShorts()
-        ) : activeTab === 'Tasks ☑️' ? (
+        ) 
+        
+        : activeTab === '🎮' ? (
+          <div className="space-y-6">
+            {/* <h2 className="text-2xl font-bold mb-4 text-white font-sans tracking-tight sm:text-xl">Game</h2> */}
+            <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0">
+            <div className="flex-1 md:max-w-md">
+                <UserStats />
+              </div>
+              <div className="flex-1 md:max-w-md">
+                <Leaderboard currentUserId={session?.user?.id} />
+              </div>
+            </div>
+          </div>
+        )
+        
+        : activeTab === 'Tasks ☑️' ? (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold mb-4 text-indigo-400 font-sans tracking-tight sm:text-xl">Tasks</h2>
             {modules.map((moduleItem, moduleIndex) => (
@@ -735,7 +777,7 @@ function CoursePlatformContent() {
               </div>
             ))}
           </div>
-        ) : activeTab === 'My Progress ⏳' ? (
+        ) : activeTab === 'Progress ⏳' ? (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold mb-4 text-white font-sans tracking-tight sm:text-xl">My Progress</h2>
             <div className="bg-gray-800 p-4 rounded-lg mb-6">
@@ -747,7 +789,7 @@ function CoursePlatformContent() {
               />
               <p className="text-center text-lg font-semibold text-gray-400">{Math.round(progress)}% do curso concluído</p>
             </div>
-            <Leaderboard currentUserId={session?.user?.id} />
+          
             {modules.map((moduleItem, moduleIndex) => (
               <div key={moduleIndex} className="bg-gray-800 p-4 rounded-lg">
                 <h3 className="text-xl font-bold mb-2 text-indigo-300 font-sans tracking-tight sm:text-lg">{moduleItem.title}</h3>
@@ -785,7 +827,8 @@ function CoursePlatformContent() {
             { icon: Home, label: 'Home 🏠' },
             { icon: BookOpen, label: 'Shorts 🔥' },
             { icon: CheckSquare, label: 'Tasks ☑️' },
-            { icon: BarChart2, label: 'My Progress ⏳' },
+            { icon: BarChart2, label: 'Progress ⏳' },
+            { icon: Gamepad2, label: '🎮' },
           ].map((item, index) => (
             <Button
               key={index}
