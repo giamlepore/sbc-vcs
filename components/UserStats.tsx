@@ -28,38 +28,60 @@ export function UserStats() {
 
   const calculateStreak = (completions: CourseCompletion[]) => {
     let currentStreak = 0;
-    let maxStreak = 0;
-    let lastDate: Date | null = null;
+    let lastCompletionDate: Date | null = null;
 
+    // Ordena as completions da mais recente para a mais antiga
     completions.sort((a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime());
 
-    for (const completion of completions) {
-      const currentDate = new Date(completion.completedAt);
-      
-      if (!lastDate || isConsecutiveDay(currentDate, lastDate)) {
-        currentStreak++;
-        maxStreak = Math.max(maxStreak, currentStreak);
-      } else {
-        currentStreak = 1;
-      }
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-      lastDate = currentDate;
+    for (const completion of completions) {
+      const completionDate = new Date(completion.completedAt);
+      completionDate.setHours(0, 0, 0, 0);
+
+      if (!lastCompletionDate) {
+        // Primeira iteração
+        currentStreak = 1;
+        lastCompletionDate = completionDate;
+      } else {
+        const dayDifference = (lastCompletionDate.getTime() - completionDate.getTime()) / (1000 * 3600 * 24);
+
+        if (dayDifference === 1) {
+          // Dia consecutivo
+          currentStreak++;
+          lastCompletionDate = completionDate;
+        } else if (dayDifference > 1) {
+          // Quebra na sequência
+          break;
+        }
+        // Se dayDifference === 0, é o mesmo dia, então continuamos para a próxima completion
+      }
     }
 
-    setStreak(maxStreak);
+    // Verifica se o streak ainda está ativo (última completion foi ontem ou hoje)
+    const daysSinceLastCompletion = lastCompletionDate
+      ? (today.getTime() - lastCompletionDate.getTime()) / (1000 * 3600 * 24)
+      : Infinity;
+
+    if (daysSinceLastCompletion > 1) {
+      currentStreak = 0;
+    }
+
+    setStreak(currentStreak);
   };
 
-  const isConsecutiveDay = (date1: Date, date2: Date) => {
-    const diffTime = Math.abs(date2.getTime() - date1.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays === 1;
+  const isDateDisabled = (date: Date) => {
+    return !completionDates.some(completionDate => 
+      completionDate.toDateString() === date.toDateString()
+    );
   };
 
   return (
     <div className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-md mx-auto">
       <h2 className="text-2xl font-bold mb-4 text-white">Your Stats</h2>
       <div className="mb-4 sm:mb-6">
-        <p className="text-base sm:text-lg text-white">Current Streak: <span className="font-bold text-indigo-400">{streak} days</span></p>
+        <p className="text-base sm:text-lg text-white">🏃🏽‍♂️ Current Streak: <span className="font-bold text-indigo-400">{streak} days</span></p>
         {lastCompletionDate && (
           <p className="text-sm text-gray-400 mt-2">
             Last lesson completed: {lastCompletionDate.toLocaleDateString()} at {lastCompletionDate.toLocaleTimeString()}
@@ -68,14 +90,15 @@ export function UserStats() {
       </div>
       <div className="w-full">
   <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">Days with lessons completed</h3>
-  <div className="w-full">
+    <div className="w-full">
           <Calendar
             mode="multiple"
             selected={completionDates}
             className="rounded-md border w-full"
+            disabled={isDateDisabled}
     />
-  </div>
-</div>
+        </div>
+    </div>
     </div>
   );
 }

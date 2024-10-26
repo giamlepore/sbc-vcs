@@ -617,7 +617,7 @@ function CoursePlatformContent() {
       <main className="flex-1 overflow-auto p-4 bg-gray-900 text-gray-200">
         {showVideo ? (
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4 font-sans tracking-tight sm:text-2xl">{modules[currentModule].courses[currentCourse].title}</h2>
+            <h2 className="text-2xl font-bold mb-4 font-sans tracking-tight sm:text-2xl">{modules[currentModule].courses[currentCourse].title}</h2>
             <div className="aspect-video bg-black mb-6 rounded-lg overflow-hidden">
               {renderVideoPlayer(modules[currentModule].courses[currentCourse].video)}
             </div>
