@@ -15,6 +15,7 @@ import { Session } from 'next-auth';
 import { SessionProvider } from "next-auth/react"
 import { Leaderboard } from "@/components/leaderboard"
 import { UserStats } from "@/components/UserStats"
+import TechQuestions from "@/components/tech-questions"
 interface CustomSession extends Session {
   user: {
     id: string;
@@ -150,6 +151,7 @@ function CoursePlatformContent() {
   const [lastUncompletedCourse, setLastUncompletedCourse] = useState<{ moduleIndex: number, courseIndex: number } | null>(null)
   const [showWebView, setShowWebView] = useState(false)
   const [webViewUrl, setWebViewUrl] = useState('')
+  const [showTechQuestions, setShowTechQuestions] = useState(false)
   
   
 
@@ -752,6 +754,17 @@ function CoursePlatformContent() {
         : activeTab === 'Tasks ☑️' ? (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold mb-4 text-indigo-400 font-sans tracking-tight sm:text-xl">Tasks</h2>
+            
+            {/* Add the new button here */}
+            <div className="bg-gray-800 p-4 rounded-lg mb-4">
+              <Button 
+                onClick={() => setShowTechQuestions(true)}
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-300"
+              >
+                📝 (Beta) Tech Questions por estágio
+              </Button>
+            </div>
+
             {modules.map((moduleItem, moduleIndex) => (
               <div key={moduleIndex} className="bg-gray-800 p-4 rounded-lg">
                 <h3 className="text-xl font-bold mb-2 text-indigo-300 font-sans tracking-tight sm:text-lg">{moduleItem.title}</h3>
@@ -848,6 +861,22 @@ function CoursePlatformContent() {
       </nav>
 
       {showWebView && <WebViewModal />}
+      {showTechQuestions && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-gray-900 rounded-lg w-full max-w-4xl h-5/6 flex flex-col">
+            <div className="flex justify-between items-center p-4 border-b border-gray-700">
+              <h3 className="text-lg font-semibold text-gray-200">Questões Para Análise Técnica</h3>
+              <button onClick={() => setShowTechQuestions(false)} className="text-gray-400 hover:text-gray-200">
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="flex-grow overflow-auto">
+              <TechQuestions />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
+
