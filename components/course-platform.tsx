@@ -557,7 +557,7 @@ function CoursePlatformContent() {
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-4 text-gray-200 font-sans">Continue de onde parou</h2>
               <div
-                className="bg-gray-800 rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg transition-all duration-300"
+                className="bg-gray-800 rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg transition-all duration-300 md:max-w-2xl"
                 onClick={() => {
                   setCurrentModule(moduleIndex)
                   setCurrentCourse(courseIndex)
