@@ -3,22 +3,24 @@ import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { motion, AnimatePresence } from 'framer-motion'
 
-interface Completion {
-  id: string
-  userId: string
-  moduleId: number
-  courseId: number
-  completedAt: string
-  user: {
-    name: string
-  }
+interface Course {
+  title: string;
 }
 
 interface Module {
-  courses: {
-    title: string;
-    // outros campos necessários
-  }[];
+  courses: Course[];
+}
+
+interface Activity {
+  id: string
+  type: 'completion' | 'session'
+  userId: string
+  moduleId?: number
+  courseId?: number
+  timestamp: string
+  user: {
+    name: string
+  }
 }
 
 interface RecentCompletionsProps {
@@ -36,19 +38,19 @@ const pulseAnimation = {
 }
 
 export function RecentCompletions({ modules }: RecentCompletionsProps) {
-  const [recentCompletions, setRecentCompletions] = useState<Completion[]>([])
+  const [recentActivities, setRecentActivities] = useState<Activity[]>([])
 
   useEffect(() => {
-    fetchRecentCompletions()
+    fetchRecentActivities()
   }, [])
 
-  const fetchRecentCompletions = async () => {
+  const fetchRecentActivities = async () => {
     try {
       const response = await fetch('/api/recent-completions')
       const data = await response.json()
-      setRecentCompletions(data)
+      setRecentActivities(data)
     } catch (error) {
-      console.error('Error fetching recent completions:', error)
+      console.error('Error fetching recent activities:', error)
     }
   }
 
@@ -62,6 +64,21 @@ export function RecentCompletions({ modules }: RecentCompletionsProps) {
       return modules[moduleId].courses[courseId].title;
     }
     return 'Aula não encontrada';
+  }
+
+  const renderActivityText = (activity: Activity) => {
+    if (activity.type === 'completion') {
+      return (
+        <>
+          <span className="mx-2">terminou</span>
+          <span className="font-medium truncate">
+            {getCourseTitle(activity.moduleId!, activity.courseId!)}
+          </span>
+        </>
+      )
+    } else {
+      return <span className="mx-2">entrou na plataforma</span>
+    }
   }
 
   return (
@@ -84,9 +101,9 @@ export function RecentCompletions({ modules }: RecentCompletionsProps) {
 
       <AnimatePresence>
         <div className="space-y-3">
-          {recentCompletions.map((completion) => (
+          {recentActivities.map((activity) => (
             <motion.div
-              key={completion.id}
+              key={activity.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -95,15 +112,12 @@ export function RecentCompletions({ modules }: RecentCompletionsProps) {
             >
               <div className="flex items-center">
                 <span className="font-semibold text-indigo-400">
-                  {getFirstName(completion.user.name)}
+                  {getFirstName(activity.user.name)}
                 </span>
-                <span className="mx-2">terminou</span>
-                <span className="font-medium truncate">
-                  {getCourseTitle(completion.moduleId, completion.courseId)}
-                </span>
+                {renderActivityText(activity)}
               </div>
               <span className="mx-2 text-gray-400">
-                há {formatDistanceToNow(new Date(completion.completedAt), { 
+                há {formatDistanceToNow(new Date(activity.timestamp), { 
                   locale: ptBR,
                   addSuffix: false 
                 })}
