@@ -16,6 +16,7 @@ import { SessionProvider } from "next-auth/react"
 import { Leaderboard } from "@/components/leaderboard"
 import { UserStats } from "@/components/UserStats"
 import TechQuestions from "@/components/tech-questions"
+import { RecentCompletions } from "@/components/RecentCompletions"
 interface CustomSession extends Session {
   user: {
     id: string;
@@ -724,7 +725,16 @@ function CoursePlatformContent() {
           </div>
         ) : activeTab === 'Home 🏠' ? (
           <>
-            {renderNextUncompletedCourse()}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-8">
+              <div className="md:col-span-1">
+                {renderNextUncompletedCourse()}
+              </div>
+              <div className="md:col-span-1 flex items-center md:justify-center">
+                <div className="w-full">
+                  <RecentCompletions modules={modules} />
+                </div>
+              </div>
+            </div>
             {modules.map((moduleItem, moduleIndex) => (
               <div key={moduleIndex} className="mb-4">
                 <div 
