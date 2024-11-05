@@ -24,7 +24,7 @@ export default async function handler(
   try {
     // Fetch recent completions
     const completions = await prisma.courseCompletion.findMany({
-      take: 5,
+      take: 15,
       orderBy: {
         completedAt: 'desc'
       },
@@ -44,7 +44,7 @@ export default async function handler(
           not: null
         }
       },
-      take: 5,
+      take: 15,
       orderBy: {
         lastSessionAt: 'desc'
       },

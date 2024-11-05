@@ -100,7 +100,7 @@ export function RecentCompletions({ modules }: RecentCompletionsProps) {
       </div>
 
       <AnimatePresence>
-        <div className="space-y-3">
+        <div className="space-y-3 max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800">
           {recentActivities.map((activity) => (
             <motion.div
               key={activity.id}
