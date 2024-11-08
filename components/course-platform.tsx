@@ -252,7 +252,7 @@ function CoursePlatformContent() {
   const getModuleProgress = (moduleIndex: number) => {
     const moduleCompletedCourses = completedCourses[moduleIndex] || [];
     const totalCoursesInModule = modules[moduleIndex].courses.length;
-    return (moduleCompletedCourses.length / totalCoursesInModule) * 100;
+    return Math.min((moduleCompletedCourses.length / totalCoursesInModule) * 100, 100);
   };
 
   const handleComplete = async () => {
@@ -877,7 +877,7 @@ function CoursePlatformContent() {
                 <div key={moduleIndex} className="bg-gray-800 p-4 rounded-lg">
                   <h3 className="text-xl font-bold mb-2 text-indigo-300 font-sans tracking-tight sm:text-lg">{moduleItem.title}</h3>
                   <motion.div
-                    className="bg-green-300 h-2 rounded-full mb-2"
+                    className="bg-green-300 h-2 rounded-full mb-2 max-w-full"
                     initial={{ width: 0 }}
                     animate={{ width: `${getModuleProgress(moduleIndex)}%` }}
                     transition={{ duration: 1 }}
