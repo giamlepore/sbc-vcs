@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Tooltip } from 'react-tooltip'
+import { Loader2 } from 'lucide-react'
+
 interface LeaderboardEntry {
   id: string
   name: string | null
@@ -14,17 +16,33 @@ interface LeaderboardProps {
 export function Leaderboard({ currentUserId }: LeaderboardProps) {
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([])
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetch('/api/leaderboard')
       .then(res => res.json())
-      .then(data => setLeaderboard(data))
+      .then(data => {
+        setLeaderboard(data)
+        setIsLoading(false)
+      })
+      .catch(error => {
+        console.error('Error fetching leaderboard:', error)
+        setIsLoading(false)
+      })
   }, [])
 
   const formatName = (name: string | null): string => {
     if (!name || name.length <= 6) return name || 'Anonymous';
     return `${name.slice(0, 3)}...${name.slice(-3)}`;
   };
+
+  if (isLoading) {
+    return (
+      <div className="bg-gray-800 p-4 rounded-lg relative min-h-[200px] flex items-center justify-center">
+        <Loader2 className="h-8 w-8 text-indigo-400 animate-spin" />
+      </div>
+    )
+  }
 
   return (
     <div className="bg-gray-800 p-4 rounded-lg relative">

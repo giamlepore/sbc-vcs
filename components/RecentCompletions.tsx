@@ -37,8 +37,23 @@ const pulseAnimation = {
   },
 }
 
+const LoadingSkeleton = () => (
+  <div className="space-y-3">
+    {[1, 2, 3].map((i) => (
+      <div key={i} className="flex flex-col animate-pulse">
+        <div className="flex items-center">
+          <div className="h-4 w-20 bg-gray-700 rounded mr-2"></div>
+          <div className="h-4 w-32 bg-gray-700 rounded"></div>
+        </div>
+        <div className="h-3 w-24 bg-gray-700 rounded mt-1 mx-2"></div>
+      </div>
+    ))}
+  </div>
+)
+
 export function RecentCompletions({ modules }: RecentCompletionsProps) {
   const [recentActivities, setRecentActivities] = useState<Activity[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetchRecentActivities()
@@ -46,11 +61,14 @@ export function RecentCompletions({ modules }: RecentCompletionsProps) {
 
   const fetchRecentActivities = async () => {
     try {
+      setIsLoading(true)
       const response = await fetch('/api/recent-completions')
       const data = await response.json()
       setRecentActivities(data)
     } catch (error) {
       console.error('Error fetching recent activities:', error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -101,29 +119,33 @@ export function RecentCompletions({ modules }: RecentCompletionsProps) {
 
       <AnimatePresence>
         <div className="space-y-3 max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800">
-          {recentActivities.map((activity) => (
-            <motion.div
-              key={activity.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col text-gray-300 text-sm sm:text-base"
-            >
-              <div className="flex items-center">
-                <span className="font-semibold text-indigo-400">
-                  {getFirstName(activity.user.name)}
+          {isLoading ? (
+            <LoadingSkeleton />
+          ) : (
+            recentActivities.map((activity) => (
+              <motion.div
+                key={activity.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col text-gray-300 text-sm sm:text-base"
+              >
+                <div className="flex items-center">
+                  <span className="font-semibold text-indigo-400">
+                    {getFirstName(activity.user.name)}
+                  </span>
+                  {renderActivityText(activity)}
+                </div>
+                <span className="mx-2 text-gray-400">
+                  há {formatDistanceToNow(new Date(activity.timestamp), { 
+                    locale: ptBR,
+                    addSuffix: false 
+                  })}
                 </span>
-                {renderActivityText(activity)}
-              </div>
-              <span className="mx-2 text-gray-400">
-                há {formatDistanceToNow(new Date(activity.timestamp), { 
-                  locale: ptBR,
-                  addSuffix: false 
-                })}
-              </span>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))
+          )}
         </div>
       </AnimatePresence>
     </div>
