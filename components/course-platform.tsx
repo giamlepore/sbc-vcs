@@ -285,10 +285,14 @@ function CoursePlatformContent() {
       })
     }
   
-    setCompletedCourses(prev => ({
-      ...prev,
-      [currentModule]: [...(prev[currentModule] || []), currentCourse]
-    }))
+    setCompletedCourses(prev => {
+      const currentCompleted = new Set(prev[currentModule] || []);
+      currentCompleted.add(currentCourse);
+      return {
+        ...prev,
+        [currentModule]: Array.from(currentCompleted)
+      };
+    })
   
     setTimeout(() => {
       setShowCheckAnimation(false)
@@ -724,7 +728,7 @@ function CoursePlatformContent() {
             </div>
           </div>
         ) : activeTab === 'Home 🏠' ? (
-          <>
+          <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-8">
               <div className="md:col-span-1">
                 {renderNextUncompletedCourse()}
@@ -796,103 +800,106 @@ function CoursePlatformContent() {
             ))}
             {renderShorts()}
             {renderArticles()}
-          </>
+          </div>
         ) : activeTab === 'Shorts 🔥' ? (
-          renderAllShorts()
-        ) 
-        
-        : activeTab === '🎮' ? (
-          <div className="space-y-6">
-            {/* <h2 className="text-2xl font-bold mb-4 text-white font-sans tracking-tight sm:text-xl">Game</h2> */}
-            <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0">
-            <div className="flex-1 md:max-w-md">
-                <UserStats />
-              </div>
-              <div className="flex-1 md:max-w-md">
-                <Leaderboard currentUserId={session?.user?.id} />
+          <div className="max-w-6xl mx-auto">
+            {renderAllShorts()}
+          </div>
+        ) : activeTab === '🎮' ? (
+          <div className="max-w-6xl mx-auto">
+            <div className="space-y-6">
+              <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0">
+                <div className="flex-1 md:max-w-md">
+                  <UserStats />
+                </div>
+                <div className="flex-1 md:max-w-md">
+                  <Leaderboard currentUserId={session?.user?.id} />
+                </div>
               </div>
             </div>
           </div>
-        )
-        
-        : activeTab === 'Tasks ☑️' ? (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold mb-4 text-indigo-400 font-sans tracking-tight sm:text-xl">Tasks</h2>
-            
-            {/* Add the new button here */}
-            <div className="bg-gray-800 p-4 rounded-lg mb-4">
-              <Button 
-                onClick={() => setShowTechQuestions(true)}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-300"
-              >
-                📝 (Beta) Tech Questions por estágio
-              </Button>
-            </div>
-
-            {modules.map((moduleItem, moduleIndex) => (
-              <div key={moduleIndex} className="bg-gray-800 p-4 rounded-lg">
-                <h3 className="text-xl font-bold mb-2 text-indigo-300 font-sans tracking-tight sm:text-lg">{moduleItem.title}</h3>
-                <ul className="space-y-2">
-                  {moduleItem.tasks.map((task, taskIndex) => (
-                    <li key={taskIndex} className="flex items-center space-x-2">
-                      <Checkbox id={`task-${moduleIndex}-${taskIndex}`} />
-                      <label htmlFor={`task-${moduleIndex}-${taskIndex}`} className="text-sm text-gray-300">
-                        {task.link ? (
-                          <button
-                            onClick={() => openWebView(task.link!)}
-                            className="text-blue-400 hover:underline"
-                          >
-                            {task.title}
-                          </button>
-                        ) : (
-                          task.title
-                        )}
-                      </label>
-                    </li>
-                  ))}
-                </ul>
+        ) : activeTab === 'Tasks ☑️' ? (
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold mb-4 text-indigo-400 font-sans tracking-tight sm:text-xl">Tasks</h2>
+              
+              {/* Add the new button here */}
+              <div className="bg-gray-800 p-4 rounded-lg mb-4">
+                <Button 
+                  onClick={() => setShowTechQuestions(true)}
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-300"
+                >
+                  📝 (Beta) Tech Questions por estágio
+                </Button>
               </div>
-            ))}
+
+              {modules.map((moduleItem, moduleIndex) => (
+                <div key={moduleIndex} className="bg-gray-800 p-4 rounded-lg">
+                  <h3 className="text-xl font-bold mb-2 text-indigo-300 font-sans tracking-tight sm:text-lg">{moduleItem.title}</h3>
+                  <ul className="space-y-2">
+                    {moduleItem.tasks.map((task, taskIndex) => (
+                      <li key={taskIndex} className="flex items-center space-x-2">
+                        <Checkbox id={`task-${moduleIndex}-${taskIndex}`} />
+                        <label htmlFor={`task-${moduleIndex}-${taskIndex}`} className="text-sm text-gray-300">
+                          {task.link ? (
+                            <button
+                              onClick={() => openWebView(task.link!)}
+                              className="text-blue-400 hover:underline"
+                            >
+                              {task.title}
+                            </button>
+                          ) : (
+                            task.title
+                          )}
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         ) : activeTab === 'Progress ⏳' ? (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold mb-4 text-white font-sans tracking-tight sm:text-xl">My Progress</h2>
-            <div className="bg-gray-800 p-4 rounded-lg mb-6">
-              <motion.div
-                className="bg-indigo-500 h-4 rounded-full mb-2"
-                initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 1 }}
-              />
-              <p className="text-center text-lg font-semibold text-gray-400">{Math.round(progress)}% do curso concluído</p>
-            </div>
-          
-            {modules.map((moduleItem, moduleIndex) => (
-              <div key={moduleIndex} className="bg-gray-800 p-4 rounded-lg">
-                <h3 className="text-xl font-bold mb-2 text-indigo-300 font-sans tracking-tight sm:text-lg">{moduleItem.title}</h3>
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold mb-4 text-white font-sans tracking-tight sm:text-xl">My Progress</h2>
+              <div className="bg-gray-800 p-4 rounded-lg mb-6">
                 <motion.div
-                  className="bg-green-300 h-2 rounded-full mb-2"
+                  className="bg-indigo-500 h-4 rounded-full mb-2"
                   initial={{ width: 0 }}
-                  animate={{ width: `${getModuleProgress(moduleIndex)}%` }}
+                  animate={{ width: `${progress}%` }}
                   transition={{ duration: 1 }}
                 />
-                <p className="text-sm text-gray-400 mb-2">{Math.round(getModuleProgress(moduleIndex))}% Complete</p>
-                <ul className="space-y-2">
-                  {moduleItem.courses.map((course, courseIndex) => (
-                    <li key={courseIndex} className="flex items-center">
-                      <div className="w-6 h-6 flex-shrink-0 mr-2">
-                        {completedCourses[moduleIndex]?.includes(courseIndex) ? (
-                          <Check className="h-6 w-6 text-green-500" />
-                        ) : (
-                          <div className="h-6 w-6 border border-gray-600 rounded-full" />
-                        )}
-                      </div>
-                      <span className="text-gray-300 flex-grow">{course.title}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-center text-lg font-semibold text-gray-400">{Math.round(progress)}% do curso concluído</p>
               </div>
-            ))}
+            
+              {modules.map((moduleItem, moduleIndex) => (
+                <div key={moduleIndex} className="bg-gray-800 p-4 rounded-lg">
+                  <h3 className="text-xl font-bold mb-2 text-indigo-300 font-sans tracking-tight sm:text-lg">{moduleItem.title}</h3>
+                  <motion.div
+                    className="bg-green-300 h-2 rounded-full mb-2"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${getModuleProgress(moduleIndex)}%` }}
+                    transition={{ duration: 1 }}
+                  />
+                  <p className="text-sm text-gray-400 mb-2">{Math.round(getModuleProgress(moduleIndex))}% Complete</p>
+                  <ul className="space-y-2">
+                    {moduleItem.courses.map((course, courseIndex) => (
+                      <li key={courseIndex} className="flex items-center">
+                        <div className="w-6 h-6 flex-shrink-0 mr-2">
+                          {completedCourses[moduleIndex]?.includes(courseIndex) ? (
+                            <Check className="h-6 w-6 text-green-500" />
+                          ) : (
+                            <div className="h-6 w-6 border border-gray-600 rounded-full" />
+                          )}
+                        </div>
+                        <span className="text-gray-300 flex-grow">{course.title}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         ) : null}
       </main>
