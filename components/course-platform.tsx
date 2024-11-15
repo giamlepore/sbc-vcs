@@ -161,6 +161,21 @@ const modules = [
       { title: 'Sem tarefas, por enquanto', completed: false },
     ]
   },
+  {
+    title: 'Bônus (Tech PM) | Módulo 05: APIs',
+    courses: [
+      { title: 'Aula #050 - Introdução a APIs', image: '/m5.png', video: 'https://player.vimeo.com/video/1027817537?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #051 - Pra que serve uma API? E sua relação com Organizações', image: '/m5.png', video: 'https://player.vimeo.com/video/1027821623?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #052 - Funcionamentos das APIs', image: '/m5.png', video: 'https://player.vimeo.com/video/1027823880?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #053 - Refatorando um Monolito', image: '/m5.png', video: 'https://player.vimeo.com/video/1027824176?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #054 - Aprofundando um pouco mais', image: '/m5.png', video: 'https://player.vimeo.com/video/1027839704?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #055 - Tipos de APIs', image: '/m5.png', video: 'https://player.vimeo.com/video/1029441260?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #056 - Tecnologias e Ferramentas relevantes', image: '/m5.png', video: 'https://player.vimeo.com/video/1029705931?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+    ],
+    tasks: [
+      { title: 'Sem tarefas, por enquanto', completed: false },
+    ]
+  },
 ]
 
 const shorts = [
