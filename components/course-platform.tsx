@@ -90,12 +90,7 @@ const modules = [
       { title: 'Aula #22 | Diferença entre must-have e nice-to-have', image: '/m3-vcs.png', video: 'https://player.vimeo.com/video/1030839262?badge=0&amp;autopause=0&amp;player_id=0&amp' },
     ],
     tasks: [
-      { title: 'Busque startups do seu portfólio (investidas ou não), e investigue as escolhas de tecnologia. Por que foram feitas? Tiveram impacto positivo ou negativo para o crescimento da startup?', completed: false },
-      { title: 'Agora faça uma análise das tecnologias com as perguntas do Tech Questions por estágio, para evidenciar green, yellow e red flagas, e a qualidade das tecnologias escolhidas.', completed: false },
-      { title: 'Clique no botão acima: (Beta) Tech Questions por estágio, e aprofunde', completed: false },
-      { title: 'Avalie o módulo 2 clicando aqui', link: 'https://tally.so/r/nPB8QV', completed: false },
-      { title: 'Leia o artigo "Backend" na seção Articles na Home', completed: false },
-      { title: 'Acesse a apresentação do Módulo 02. Ao abrir, clique novamente em "Abra o documento diretamente"', link: 'https://drive.google.com/file/d/1Jg_2QJB7ro0nsmeknIt3JkaWTj8jYfY3/view?usp=sharing', completed: false },
+      { title: 'No tasks', completed: false },
 
 
     ]
