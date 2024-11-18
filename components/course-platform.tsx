@@ -79,6 +79,27 @@ const modules = [
 
     ]
   },
+
+  {
+    title: '(VCs) Módulo 03: Produtos, Análises de Roadmap e Tecnologia',
+    courses: [
+      { title: 'Aula #18 | Como a tecnologia apoia o processo de busca pelo PMF?', image: '/m3-vcs.png', video: 'https://player.vimeo.com/video/1030829584?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #19 | O que é o processo de desenvolvimento?', image: '/m3-vcs.png', video: 'https://player.vimeo.com/video/1030832775?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #20 | Como avaliar valor para o usuário', image: '/m3-vcs.png', video: 'https://player.vimeo.com/video/1030835186?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #21 | Análise de Roadmap', image: '/m3-vcs.png', video: 'https://player.vimeo.com/video/1030841045?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #22 | Diferença entre must-have e nice-to-have', image: '/m3-vcs.png', video: 'https://player.vimeo.com/video/1030839262?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+    ],
+    tasks: [
+      { title: 'Busque startups do seu portfólio (investidas ou não), e investigue as escolhas de tecnologia. Por que foram feitas? Tiveram impacto positivo ou negativo para o crescimento da startup?', completed: false },
+      { title: 'Agora faça uma análise das tecnologias com as perguntas do Tech Questions por estágio, para evidenciar green, yellow e red flagas, e a qualidade das tecnologias escolhidas.', completed: false },
+      { title: 'Clique no botão acima: (Beta) Tech Questions por estágio, e aprofunde', completed: false },
+      { title: 'Avalie o módulo 2 clicando aqui', link: 'https://tally.so/r/nPB8QV', completed: false },
+      { title: 'Leia o artigo "Backend" na seção Articles na Home', completed: false },
+      { title: 'Acesse a apresentação do Módulo 02. Ao abrir, clique novamente em "Abra o documento diretamente"', link: 'https://drive.google.com/file/d/1Jg_2QJB7ro0nsmeknIt3JkaWTj8jYfY3/view?usp=sharing', completed: false },
+
+
+    ]
+  },
   
 
   {
