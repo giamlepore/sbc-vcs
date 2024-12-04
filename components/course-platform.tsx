@@ -95,6 +95,22 @@ const modules = [
 
     ]
   },
+
+  {
+    title: '(VCs) Módulo 04: Avaliando a equipe técnica',
+    courses: [
+      { title: 'Aula #23 | Qual a sua avaliação de Tech Founder?', image: '/m4-vcs.png', video: 'https://player.vimeo.com/video/1035168418?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #24 | Funções de cada integrante do time', image: '/m4-vcs.png', video: 'https://player.vimeo.com/video/1035168478?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #25 | Arquétipos de CTOs', image: '/m4-vcs.png', video: 'https://player.vimeo.com/video/1035168538?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #26 | Bom e mau CTO', image: '/m4-vcs.png', video: 'https://player.vimeo.com/video/1035168584?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #27 | Aspectos para observar em tech', image: '/m4-vcs.png', video: 'https://player.vimeo.com/video/1035168624?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+    ],
+    tasks: [
+      { title: 'No tasks', completed: false },
+
+
+    ]
+  },
   
 
   {
