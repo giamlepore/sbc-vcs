@@ -115,10 +115,16 @@ const modules = [
   {
     title: '(VCs) Módulo 06: Avaliando a equipe técnica',
     courses: [
-      { title: 'Aula #28 | Discussão Case Mercado Livre', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039497548?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #29 | O que é escalabilidade?', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039498270?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #30 | Arquitetura', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039499546?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #31 | Estruturação de Times e Arquitetura', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039500512?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #28 | Parte 01: Discussão Case Mercado Livre', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039497548?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #29 | Parte 01: O que é escalabilidade?', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039498270?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #30 | Parte 01: Arquitetura', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039499546?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #31 | Parte 01: Estruturação de Times e Arquitetura', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039500512?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
+      { title: 'Aula #32 | Parte 02: Infraestrutura e Impacto', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1042477342?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #33 | Parte 02: Qual a importância?', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1042477351?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #34 | Parte 02: Componentes de infraestrutura', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1042477363?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #35 | Parte 02: Cloud Computing 01', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1042477373?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #36 | Parte 02: Cloud Computing 02', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1042477386?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #37 | Parte 02: Débitos Técnicos', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1042477391?badge=0&amp;autopause=0&amp;player_id=0&amp' },
     ],
     tasks: [
       { title: 'No tasks', completed: false },
@@ -126,107 +132,13 @@ const modules = [
 
     ]
   },
-  
-
-  {
-    title: 'Bônus (Tech PM) | Módulo 01: Como a Internet Funciona?',
-    courses: [
-      { title: 'Aula #01 - O que é esperado aqui nesse módulo? Qual a expectativa?', image: '/m1.png', video: 'https://player.vimeo.com/video/1016265685?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #02 - O que é a internet?', image: '/m1.png', video: 'https://player.vimeo.com/video/1016265764?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #03 - Tecnologias por trás da internet', image: '/m1.png', video: 'https://player.vimeo.com/video/1016265897?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #04 - Banda e Latência', image: '/m1.png', video: 'https://player.vimeo.com/video/1016266097?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #05 - Web além do endereço de browser', image: '/m1.png', video: 'https://player.vimeo.com/video/1016266177?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #06 (Prática) - DNS na prática com Google DNS', image: '/m1.png', video: 'https://player.vimeo.com/video/1016266528?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #07 (Prática) - Por que é útil saber disso tudo?', image: '/m1.png', video: 'https://player.vimeo.com/video/1016266562?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-    ],
-    tasks: [
-      { title: 'Em breve', completed: false },
-    ]
-  },
-  {
-    title: 'Bônus (Tech PM) | Módulo 02: Construindo Software',
-    courses: [
-      { title: 'Aula #08 - Introdução Módulo 2', image: '/m2.png', video: 'https://player.vimeo.com/video/1016266732?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #09 - O ciclo de desenvolvimento de software', image: '/m2.png', video: 'https://player.vimeo.com/video/1016266810?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #10 - O projeto que vamos criar do zero', image: '/m2.png', video: 'https://player.vimeo.com/video/1016266955?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #11 - Especificação e refinamento (parte 1)', image: '/m2.png', video: 'https://player.vimeo.com/video/1016267057?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #12 - Especificação e Refinamento (Parte 2)', image: '/m2.png', video: 'https://player.vimeo.com/video/1016807202?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #13 - Configurando o ambiente de desenvolvimento (parte 01)', image: '/m2.png', video: 'https://player.vimeo.com/video/1016267183?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #14 - Configurando o ambiente de desenvolvimento (parte 02)', image: '/m2.png', video: 'https://player.vimeo.com/video/1016267548?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #15 - VSCode + Docker', image: '/m2.png', video: 'https://player.vimeo.com/video/1016267999?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #16 - Solucionando bugs na prática', image: '/m2.png', video: 'https://player.vimeo.com/video/1016268288?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #17 - Sistema de Controle de Versão (Parte 01)', image: '/m2.png', video: 'https://player.vimeo.com/video/1016268870?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #18 - Sistema de Controle de Versão (Parte 02)', image: '/m2.png', video: 'https://player.vimeo.com/video/1016269079?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #19 - Testes Automatizados (Parte 01)', image: '/m2.png', video: 'https://player.vimeo.com/video/1016269241?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #20 - Testes Automatizados (Parte 02)', image: '/m2.png', video: 'https://player.vimeo.com/video/1016269463?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #21 - Integração e Implantação', image: '/m2.png', video: 'https://player.vimeo.com/video/1016270242?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #22 - Operação e Manutenção', image: '/m2.png', video: 'https://player.vimeo.com/video/1016270419?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-    ],
-    tasks: [
-      { title: 'Sem tarefas, por enquanto', completed: false },
-    ]
-  },
-  
-  {
-    title: 'Bônus (Tech PM) | Módulo 03: Conceitos de básicos de programação para se tornar um "PM full-stack"',
-    courses: [
-      { title: 'Aula #23 - Pontos importantes em Programação', image: '/m3.png', video: 'https://player.vimeo.com/video/1016270619?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #24 - Você realmente entende o que é "front-end"?', image: '/m3.png', video: 'https://player.vimeo.com/video/1016270903?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #25 - HTML Fundamentos e por que é importante?', image: '/m3.png', video: 'https://player.vimeo.com/video/1016271213?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #26 - HTML Fundamentos II', image: '/m3.png', video: 'https://player.vimeo.com/video/1016271382?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #27 - HTML Fundamentos Final', image: '/m3.png', video: 'https://player.vimeo.com/video/1016271583?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #28 - CSS Parte I', image: '/m3.png', video: 'https://player.vimeo.com/video/1016272033?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #29 - CSS Parte II', image: '/m3.png', video: 'https://player.vimeo.com/video/1016272246?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #30 - CSS Prática I', image: '/m3.png', video: 'https://player.vimeo.com/video/1016272358?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #31 - CSS Prática II', image: '/m3.png', video: 'https://player.vimeo.com/video/1016272479?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #32 - CSS Prática III', image: '/m3.png', video: 'https://player.vimeo.com/video/1016272627?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #33 - CSS Prática IV', image: '/m3.png', video: 'https://player.vimeo.com/video/1016272780?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #34 - JavaScript Parte I', image: '/m3.png', video: 'https://player.vimeo.com/video/1016272918?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #35 - JavaScript Parte II', image: '/m3.png', video: 'https://player.vimeo.com/video/1016273016?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #36 - JavaScript Parte III', image: '/m3.png', video: 'https://player.vimeo.com/video/1016273258?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #37 - JavaScript Parte IV', image: '/m3.png', video: 'https://player.vimeo.com/video/1016273354?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #38 - JavaScript Parte V', image: '/m3.png', video: 'https://player.vimeo.com/video/1016275226?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #39 - JavaScript Parte VI', image: '/m3.png', video: 'https://player.vimeo.com/video/1016276385?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #40 - JavaScript Final', image: '/m3.png', video: 'https://player.vimeo.com/video/1016276541?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #41 - Compartilhamento (Extra)', image: '/m3.png', video: 'https://player.vimeo.com/video/1016276753?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-    ],
-    tasks: [
-      { title: 'Sem tarefas, por enquanto', completed: false },
-    ]
-  },
-  {
-    title: 'Bônus (Tech PM) | Módulo 04: Bancos de Dados',
-    courses: [
-      { title: 'Aula #042 - Bancos de Dados, o básico', image: '/m4.png', video: 'https://player.vimeo.com/video/1016276876?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #043 - Tipos de Bancos de Dados I', image: '/m4.png', video: 'https://player.vimeo.com/video/1016276967?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #044 - Tipos de Bancos de Dados II', image: '/m4.png', video: 'https://player.vimeo.com/video/1016277061?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #045 - Modelagem de Dados I', image: '/m4.png', video: 'https://player.vimeo.com/video/1016277311?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #046 - Modelagem de Dados II', image: '/m4.png', video: 'https://player.vimeo.com/video/1016277459?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #047 - Modelagem de Dados III', image: '/m4.png', video: 'https://player.vimeo.com/video/1016277556?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-    ],
-    tasks: [
-      { title: 'Sem tarefas, por enquanto', completed: false },
-    ]
-  },
-  {
-    title: 'Bônus (Tech PM) | Módulo 05: APIs',
-    courses: [
-      { title: 'Aula #050 - Introdução a APIs', image: '/m5.png', video: 'https://player.vimeo.com/video/1027817537?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #051 - Pra que serve uma API? E sua relação com Organizações', image: '/m5.png', video: 'https://player.vimeo.com/video/1027821623?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #052 - Funcionamentos das APIs', image: '/m5.png', video: 'https://player.vimeo.com/video/1027823880?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #053 - Refatorando um Monolito', image: '/m5.png', video: 'https://player.vimeo.com/video/1027824176?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #054 - Aprofundando um pouco mais', image: '/m5.png', video: 'https://player.vimeo.com/video/1027839704?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #055 - Tipos de APIs', image: '/m5.png', video: 'https://player.vimeo.com/video/1029441260?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-      { title: 'Aula #056 - Tecnologias e Ferramentas relevantes', image: '/m5.png', video: 'https://player.vimeo.com/video/1029705931?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
-    ],
-    tasks: [
-      { title: 'Sem tarefas, por enquanto', completed: false },
-    ]
-  },
 ]
 
 const shorts = [
-  { title: 'Tech for VCs - Welcome', duration: '0:22', video2: 'https://player.vimeo.com/video/1022247390?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1022247390?autoplay=1' },
+  { title: 'Convidado Lucas Rolim: Inovações do Sistema', duration: '0:59', video2: 'https://player.vimeo.com/video/1041197422?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1041197422?autoplay=1' },
+  { title: 'Convidado Lucas Rolim: Gateway de Pagamento', duration: '0:50', video2: 'https://player.vimeo.com/video/1041198937?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1041198937?autoplay=1' }, 
+  { title: 'Convidado Lucas Rolim: Dependência de Ferramentas', duration: '0:46', video2: 'https://player.vimeo.com/video/1041198210?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1041198210?autoplay=1' }, 
+  { title: 'Convidado Lucas Rolim: Magic Features', duration: '1:08', video2: 'https://player.vimeo.com/video/1041205349?autoplay=1&loop=1&muted=1&autopause=0', video: 'https://player.vimeo.com/video/1041205349?autoplay=1' }, 
 ]
 
 const articles = [
@@ -278,6 +190,23 @@ function CoursePlatformContent() {
     }
     setMounted(true)
   }, [session])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setShowVideo(false)
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    
+    // Push a new state when showing video
+    if (showVideo) {
+      window.history.pushState({ showVideo: true }, '')
+    }
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+    }
+  }, [showVideo])
 
   const loadUserProgress = async () => {
     if (session?.user?.id) {
