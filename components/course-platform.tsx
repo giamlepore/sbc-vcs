@@ -113,7 +113,7 @@ const modules = [
   },
 
   {
-    title: '(VCs) Módulo 06: Avaliando a equipe técnica',
+    title: '(VCs) Módulo 06: Escalabilidade, Infraestrutura e Cloud Computing',
     courses: [
       { title: 'Aula #28 | Parte 01: Discussão Case Mercado Livre', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039497548?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
       { title: 'Aula #29 | Parte 01: O que é escalabilidade?', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039498270?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
