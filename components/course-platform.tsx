@@ -113,7 +113,7 @@ const modules = [
   },
 
   {
-    title: '(VCs) Módulo 06: Escalabilidade, Infraestrutura e Cloud Computing',
+    title: '(VCs) Módulo 05: Escalabilidade, Infraestrutura e Cloud Computing',
     courses: [
       { title: 'Aula #28 | Parte 01: Discussão Case Mercado Livre', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039497548?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
       { title: 'Aula #29 | Parte 01: O que é escalabilidade?', image: '/m6-vcs.png', video: 'https://player.vimeo.com/video/1039498270?badge=0&amp;autopause=0&amp;player_id=0&amp' }, 
@@ -134,7 +134,7 @@ const modules = [
   },
 
   {
-    title: '(VCs) Módulo 07: Cybersegurança para VCs',
+    title: '(VCs) Módulo 06: Cybersegurança para VCs',
     courses: [
       { title: 'Aula #38 | Cybersegurança', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045774937?badge=0&amp;autopause=0&amp;player_id=0&amp' },
       { title: 'Aula #39 | Tipos mais comuns de cyberataques', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045779569?badge=0&amp;autopause=0&amp;player_id=0&amp' },
@@ -848,9 +848,9 @@ function CoursePlatformContent() {
                   { title: "Módulo 02: O Stack Tecnológico", pdf: "/pdfs/m2.pdf", color: "from-purple-500 to-purple-700" },
                   { title: "Módulo 03: Produtos e Roadmap", pdf: "/pdfs/m3.pdf", color: "from-green-500 to-green-700" },
                   { title: "Módulo 04: Avaliando Equipe Técnica", pdf: "/pdfs/m4.pdf", color: "from-red-500 to-red-700" },
-                  { title: "Módulo 05: Arquitetura de Software", pdf: "/pdfs/m5.pdf", color: "from-yellow-500 to-yellow-700" },
-                  { title: "Módulo 06: Escalabilidade e Cloud", pdf: "/pdfs/m6.pdf", color: "from-pink-500 to-pink-700" },
-                  { title: "Módulo 07: Cybersegurança", pdf: "/pdfs/m7.pdf", color: "from-indigo-500 to-indigo-700" },
+                  { title: "Módulo 05: Escalabilidade e Cloud", pdf: "/pdfs/m5.pdf", color: "from-yellow-500 to-yellow-700" },
+                  { title: "Módulo 06: Cybersegurança e Privacidade", pdf: "/pdfs/m6.pdf", color: "from-pink-500 to-pink-700" },
+                  { title: "Módulo 07: Métricas de tecnologia", pdf: "/pdfs/m7.pdf", color: "from-indigo-500 to-indigo-700" },
                   // { title: "Módulo 08: Inovação em Tech", pdf: "/pdfs/module8.pdf", color: "from-cyan-500 to-cyan-700" },
                 ].map((module, index) => (
                   <div
