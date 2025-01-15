@@ -132,6 +132,19 @@ const modules = [
 
     ]
   },
+
+  {
+    title: '(VCs) Módulo 07: Cybersegurança para VCs',
+    courses: [
+      { title: 'Aula #38 | Cybersegurança', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045774937?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #39 | Tipos mais comuns de cyberataques', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045779569?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #40 | Ferramentas para auxiliar no entedimento', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045780078?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #41 | Aspectos de proteção proativa', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045780105?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+    ],
+    tasks: [
+      { title: 'No tasks', completed: false },
+    ]
+  },
 ]
 
 const shorts = [
@@ -816,16 +829,47 @@ function CoursePlatformContent() {
         ) : activeTab === 'Tasks ☑️' ? (
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold mb-4 text-indigo-400 font-sans tracking-tight sm:text-xl">Tasks</h2>
+              <h2 className="text-2xl font-bold mb-4 text-indigo-400 font-sans tracking-tight sm:text-xl">Apresentações e Tarefas</h2>
               
               {/* Add the new button here */}
-              <div className="bg-gray-800 p-4 rounded-lg mb-4">
+              {/* <div className="bg-gray-800 p-4 rounded-lg mb-4">
                 <Button 
                   onClick={() => setShowTechQuestions(true)}
                   className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-300"
                 >
                   📝 (Beta) Tech Questions por estágio
                 </Button>
+              </div> */}
+
+              {/* Module Task Banners */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                {[
+                  { title: "(Indisponível) Módulo 01: O básico de tech para VCs", pdf: "/pdfs/m1.pdf", color: "from-blue-500 to-blue-700" },
+                  { title: "Módulo 02: O Stack Tecnológico", pdf: "/pdfs/m2.pdf", color: "from-purple-500 to-purple-700" },
+                  { title: "Módulo 03: Produtos e Roadmap", pdf: "/pdfs/m3.pdf", color: "from-green-500 to-green-700" },
+                  { title: "Módulo 04: Avaliando Equipe Técnica", pdf: "/pdfs/m4.pdf", color: "from-red-500 to-red-700" },
+                  { title: "Módulo 05: Arquitetura de Software", pdf: "/pdfs/m5.pdf", color: "from-yellow-500 to-yellow-700" },
+                  { title: "Módulo 06: Escalabilidade e Cloud", pdf: "/pdfs/m6.pdf", color: "from-pink-500 to-pink-700" },
+                  { title: "Módulo 07: Cybersegurança", pdf: "/pdfs/m7.pdf", color: "from-indigo-500 to-indigo-700" },
+                  // { title: "Módulo 08: Inovação em Tech", pdf: "/pdfs/module8.pdf", color: "from-cyan-500 to-cyan-700" },
+                ].map((module, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      const link = document.createElement('a');
+                      link.href = module.pdf;
+                      link.download = `${module.title}.pdf`;
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
+                    className={`bg-gradient-to-r ${module.color} p-6 rounded-lg shadow-lg cursor-pointer 
+                      transform transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                  >
+                    <h3 className="text-white font-semibold text-lg mb-2">{module.title}</h3>
+                    <p className="text-white/80 text-sm">Clique para baixar o material em PDF</p>
+                  </div>
+                ))}
               </div>
 
               {modules.map((moduleItem, moduleIndex) => (
