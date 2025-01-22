@@ -145,6 +145,33 @@ const modules = [
       { title: 'No tasks', completed: false },
     ]
   },
+
+
+  {
+    title: '(VCs) Módulo 07: Cybersegurança para VCs',
+    courses: [
+      { title: 'Aula #38 | Cybersegurança', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045774937?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #39 | Tipos mais comuns de cyberataques', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045779569?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #40 | Ferramentas para auxiliar no entedimento', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045780078?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #41 | Aspectos de proteção proativa', image: '/m7-vcs.png', video: 'https://player.vimeo.com/video/1045780105?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+    ],
+    tasks: [
+      { title: 'No tasks', completed: false },
+    ]
+  },
+
+  {
+    title: '(VCs) Módulo 08: Métricas e KPIs de Tecnologia',
+    courses: [
+      { title: 'Aula #42 | Analisando métricas e KPIs (parte I)', image: '/m8-vcs.png', video: 'https://player.vimeo.com/video/1048447998?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #43 | Analisando métricas e KPIs (parte II)', image: '/m8-vcs.png', video: 'https://player.vimeo.com/video/1048448038?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #44 | Velocity, Test Coverage e Tempo de Deploy', image: '/m8-vcs.png', video: 'https://player.vimeo.com/video/1048448085?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #45 | Gasto com Nuvem, Taxa de Adoção e Receita por Headcount', image: '/m8-vcs.png', video: 'https://player.vimeo.com/video/1048448142?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+    ],
+    tasks: [
+      { title: 'No tasks', completed: false },
+    ]
+  }
 ]
 
 const shorts = [
