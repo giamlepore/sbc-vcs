@@ -171,6 +171,19 @@ const modules = [
     tasks: [
       { title: 'No tasks', completed: false },
     ]
+  },
+
+  {
+    title: '(VCs) Módulo 10: Conceitos Finais',
+    courses: [
+      { title: 'Aula #46 | Como fazer análise técnica robusta', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865034?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #47 | Stack e Código', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865423?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #48 | Plataforma de Análise para VCs', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865830?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #49 | Armadilhas Comuns', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056866551?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+    ],
+    tasks: [
+      { title: 'No tasks', completed: false },
+    ]
   }
 ]
 
