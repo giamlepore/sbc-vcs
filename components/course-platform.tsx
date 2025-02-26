@@ -50,8 +50,6 @@ const modules = [
       { title: 'Mande suas perguntas técnicas do deck clicando aqui', link: 'https://tally.so/r/w8pZEo', completed: false },
       { title: 'Avalie a aula clicando aqui', link: 'https://tally.so/r/w4NJAr', completed: false },
       { title: 'Leia o artigo "50 conceitos técnicos para VCs" na seção Articles na Home', completed: false },
-
-
     ]
   },
 
@@ -75,8 +73,6 @@ const modules = [
       { title: 'Avalie o módulo 2 clicando aqui', link: 'https://tally.so/r/nPB8QV', completed: false },
       { title: 'Leia o artigo "Backend" na seção Articles na Home', completed: false },
       { title: 'Acesse a apresentação do Módulo 02. Ao abrir, clique novamente em "Abra o documento diretamente"', link: 'https://drive.google.com/file/d/1Jg_2QJB7ro0nsmeknIt3JkaWTj8jYfY3/view?usp=sharing', completed: false },
-
-
     ]
   },
 
@@ -91,8 +87,6 @@ const modules = [
     ],
     tasks: [
       { title: 'No tasks', completed: false },
-
-
     ]
   },
 
@@ -107,8 +101,6 @@ const modules = [
     ],
     tasks: [
       { title: 'No tasks', completed: false },
-
-
     ]
   },
 
@@ -128,8 +120,6 @@ const modules = [
     ],
     tasks: [
       { title: 'No tasks', completed: false },
-
-
     ]
   },
 
@@ -145,7 +135,6 @@ const modules = [
       { title: 'No tasks', completed: false },
     ]
   },
-
 
   {
     title: '(VCs) Módulo 07: Cybersegurança para VCs',
@@ -174,17 +163,33 @@ const modules = [
   },
 
   {
-    title: '(VCs) Módulo 10: Conceitos Finais',
+    title: '(VCs) Módulo 09: Avaliando Vantagem Competitiva',
     courses: [
-      { title: 'Aula #46 | Como fazer análise técnica robusta', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865034?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #47 | Stack e Código', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865423?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #48 | Plataforma de Análise para VCs', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865830?badge=0&amp;autopause=0&amp;player_id=0&amp' },
-      { title: 'Aula #49 | Armadilhas Comuns', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056866551?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #46 | Avaliando a Vantagem Competitiva de uma Tecnologia', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1057074952?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #47 | Expertise Técnica e Time', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1057075202?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #48 | Dependência de Terceiros', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1057075512?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #49 | Escalabilidade da Solução', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1057075867?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #50 | Exemplos de Uso', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1057076304?badge=0&amp;autopause=0&amp;player_id=0&amp' },
     ],
     tasks: [
       { title: 'No tasks', completed: false },
     ]
-  }
+  },
+
+  {
+    title: '(VCs) Módulo 10: Conceitos Finais',
+    courses: [
+      { title: 'Aula #51 | Como fazer análise técnica robusta', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865034?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #52 | Stack e Código', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865423?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #53 | Plataforma de Análise para VCs', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056865830?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+      { title: 'Aula #54 | Armadilhas Comuns', image: '/m10-vcs.png', video: 'https://player.vimeo.com/video/1056866551?badge=0&amp;autopause=0&amp;player_id=0&amp' },
+    ],
+    tasks: [
+      { title: 'No tasks', completed: false },
+    ]
+  },
+
+  
 ]
 
 const shorts = [
